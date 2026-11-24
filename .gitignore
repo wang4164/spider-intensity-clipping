@@ -1,0 +1,9 @@
+results/
+data/
+external/
+_cmp/
+_verify/
+*.log
+__pycache__/
+*.pyc
+spider-intensity-clipping/
