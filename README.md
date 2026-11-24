@@ -2,7 +2,7 @@
 
 This repository holds the code for the paper:
 
-> Hidden intensity transformations in lumbar MRI: consequences for reference-normalised biomarkers and degeneration-dependent measurement bias. [Authors]. Biomedical Signal Processing and Control (submitted).
+> Hidden intensity transformations in lumbar MRI: consequences for reference-normalised biomarkers and degeneration-dependent measurement bias. Zebin Wang, Chen Yu. Manuscript submitted.
 
 The code does four things:
 

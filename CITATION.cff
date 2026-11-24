@@ -2,7 +2,9 @@ cff-version: 1.2.0
 message: "If you use this code, please cite the paper and this repository."
 title: "Hidden intensity transformations in lumbar MRI: analysis code"
 authors:
-  - family-names: "[Family name]"
-    given-names: "[Given name]"
+  - family-names: "Wang"
+    given-names: "Zebin"
+  - family-names: "Yu"
+    given-names: "Chen"
 license: MIT
-repository-code: "https://github.com/[account]/spider-intensity-clipping"
+repository-code: "https://github.com/wang4164/spider-intensity-clipping"
