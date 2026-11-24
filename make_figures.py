@@ -140,7 +140,8 @@ def figure2():
     ax.axhline(0.01, color=DARK, lw=0.6, ls="--")
     ax.text(3.45, 0.013, "0.01%", fontsize=6.5, ha="right", va="bottom")
     ax.set_yscale("log"); ax.set_xticks(range(4))
-    ax.set_xticklabels(["SPIDER\nconverted", "SPIDER\nnative", "RSNA", "Second\ndataset"], fontsize=6.5)
+    ax.set_xticklabels(["SPIDER converted", "SPIDER native", "RSNA", "Second dataset"], fontsize=6.5, rotation=30, ha="right",
+                       rotation_mode="anchor")
     ax.set_ylabel("Voxels at the stored maximum (%)"); ax.set_xlim(-0.6, 3.6)
     title(ax, "B", "Ceiling pile-up")
 
@@ -158,7 +159,7 @@ def figure2():
     ax.scatter(100 * c.frac_min, 100 * c.frac_max, s=6, color=ORANGE, alpha=0.7, lw=0)
     ax.set_ylim(4.9, 5.2); ax.set_xlabel("Voxels at the floor (%)"); ax.set_ylabel("Voxels at the ceiling (%)")
     ax.text(0.97, 0.95, "every converted volume:\n5.00–5.12% at the ceiling", transform=ax.transAxes, ha="right", va="top", fontsize=7)
-    title(ax, "D", "A fixed 5% at the ceiling")
+    title(ax, "D", "About 5% at the ceiling in every volume")
 
     # (E) image with saturated voxels
     ax = fig.add_subplot(gs[1, 2])
@@ -241,7 +242,7 @@ def figure4():
 
     # (C) censored share by CSF ROI definition, observed SPIDER release
     ax = fig.add_subplot(gs[1, 0])
-    rois = [("whole", "Whole\ncanal"), ("ero1", "Eroded\n1 mm"), ("ero2", "Eroded\n2 mm"), ("core", "Pure CSF\ncore")]
+    rois = [("whole", "Whole\ncanal"), ("ero1", "Eroded\n1 mm"), ("ero2", "Eroded\n2 mm"), ("core", "Core\nCSF")]
     sets = [("2D T2", S[(S.kind == "t2") & S.converted], BLUE), ("3D SPACE", S[(S.kind == "SPACE") & S.converted], ORANGE)]
     wbar = 0.36
     for j, (name, d, col) in enumerate(sets):
@@ -317,12 +318,12 @@ def figure5():
         lvl3 = e.csf_clipped > 0.5
         bad = e.err_total.abs() > 0.10
         offd = bad & (e.err_offset.abs() > 0.10)
-        for j, (flag, tag) in enumerate([(~lvl3, "L2"), (lvl3, "L3")]):
-            labels.append(tag); x.append(gi * 2.6 + j)
+        for j, (flag, tag) in enumerate([(~lvl3, "2"), (lvl3, "3")]):
+            labels.append(tag); x.append(gi * 3.2 + j * 1.25)
             off.append(100 * (offd & flag).sum() / flag.sum()); clip.append(100 * ((bad & ~offd) & flag).sum() / flag.sum())
-        ax.text(gi * 2.6 + 0.5, -11, name, ha="center", va="top", fontsize=6.5, transform=ax.transData, clip_on=False)
-    ax.bar(x, off, color=GREY, width=0.8, label="Offset-driven")
-    ax.bar(x, clip, bottom=off, color=ORANGE, width=0.8, label="Clipping-driven")
+        ax.text(gi * 3.2 + 0.625, -11, name, ha="center", va="top", fontsize=6.5, transform=ax.transData, clip_on=False)
+    ax.bar(x, off, color=GREY, width=0.9, label="Offset-driven")
+    ax.bar(x, clip, bottom=off, color=ORANGE, width=0.9, label="Clipping-driven")
     ax.set_xticks(x); ax.set_xticklabels(labels, fontsize=6.5)
     ax.set_ylabel("Discs with |ratio error| >10% (%)"); ax.set_ylim(0, 100)
     ax.legend(frameon=False, loc="upper left", fontsize=6.5)
