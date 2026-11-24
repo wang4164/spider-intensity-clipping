@@ -1,5 +1,7 @@
 # Hidden intensity transformations in lumbar MRI: analysis code
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24495252.svg)](https://doi.org/10.5281/zenodo.24495252)
+
 This repository holds the code for the paper:
 
 > Hidden intensity transformations in lumbar MRI: consequences for reference-normalised biomarkers and degeneration-dependent measurement bias. Zebin Wang, Chen Yu. Manuscript submitted.
@@ -74,4 +76,4 @@ The code is released under the MIT licence (see `LICENSE`). The datasets remain 
 
 ## Citation
 
-If you use this code, please cite the paper above and this repository (see `CITATION.cff`).
+If you use this code, please cite the paper above and this repository: Zebin Wang, Chen Yu. Hidden intensity transformations in lumbar MRI: analysis code, version 1.0.0. Zenodo, 2026. https://doi.org/10.5281/zenodo.24495252

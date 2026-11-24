@@ -6,5 +6,8 @@ authors:
     given-names: "Zebin"
   - family-names: "Yu"
     given-names: "Chen"
+version: "1.0.0"
+doi: "10.5281/zenodo.24495252"
+date-released: "2026-11-24"
 license: MIT
 repository-code: "https://github.com/wang4164/spider-intensity-clipping"
